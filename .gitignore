@@ -1,0 +1,6 @@
+# Gitignore for Python projects
+
+**.DS_Store
+log/**
+**/__pycache__/**
+img/figures/**

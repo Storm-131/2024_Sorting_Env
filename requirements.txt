@@ -1,0 +1,11 @@
+stable_baselines3
+numpy
+matplotlib
+gym
+tqdm
+rich
+argparse
+seaborn
+opencv-python
+tensorboard
+optuna
