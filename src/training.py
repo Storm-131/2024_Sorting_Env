@@ -19,12 +19,12 @@ def RL_Trainer(model_type="DQN", env=None, total_timesteps=100_000, tag=""):
     env = Monitor(env)
     check_env(env)
 
-    # Erstelle das TensorBoard-Log-Verzeichnis
+    # Create log directory
     tensorboard_log = "./log/tensorboard/"
     if not os.path.exists(tensorboard_log):
         os.makedirs(tensorboard_log)
 
-    # Modellwahl basierend auf dem angegebenen Typ
+    # Choose the model type
     if model_type == "PPO":
         model = PPO("MlpPolicy", env, verbose=0, tensorboard_log=tensorboard_log, ent_coef=0.01)
     elif model_type == "DQN":
@@ -34,14 +34,14 @@ def RL_Trainer(model_type="DQN", env=None, total_timesteps=100_000, tag=""):
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 
-    # Trainiere das Modell
+    # Train the model
     model.learn(total_timesteps=total_timesteps, progress_bar=True)
 
-    # Evaluierung des Modells
+    # Evaluate the model
     mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
     print(f"Mean reward: {mean_reward} +/- {std_reward}")
 
-    # Speichere das Modell
+    # Save the model
     model_path = f"./models/{model_type.lower()}_sorting_env_{tag}"
     if os.path.exists(model_path):
         i = 1
