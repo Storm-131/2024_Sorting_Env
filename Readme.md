@@ -13,7 +13,7 @@ This is a research project that aims to develop a flexible environment for reinf
 2. **Changes in Observation Space:** E.g. new sensors, new data categories
 
 ---
-**Note:❗️**This is the code for the (upcoming) publication **SortingEnv: An Extendable RL-Environment for an Industrial Sorting Process** (Maus es Al., in preparation)
+**Note:❗️**This is the code for the (upcoming) publication **SortingEnv: An Extendable RL-Environment for an Industrial Sorting Process** (Maus et Al., in preparation)
 
 ---
 
