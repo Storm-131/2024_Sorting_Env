@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 from src.env_1_simple import SortingEnvironment
 from matplotlib.colors import ListedColormap, BoundaryNorm
-
+import os
 
 # ---------------------------------------------------------*/
 # Configuration
@@ -94,6 +94,11 @@ def generate_accuracy_heatplot(fig, ax, env, belt_speeds):
         accuracy_matrix[i, :] = occupancy_data[occupancy]
 
     df = pd.DataFrame(accuracy_matrix, index=occupancy_values, columns=speed_values)
+    
+    # Check if the directory exists, if not, create it
+    if not os.path.exists('./log/'):
+        os.makedirs('./log/')
+        
     df.to_csv('./log/accuracy_matrix_2.csv')
 
     # Create a custom colormap that includes black for values below Threshold
@@ -216,7 +221,7 @@ def run_env_analysis(env):
     # generate_reward_heatplot_occ(fig, axes[4], env)
 
     plt.tight_layout()
-    plt.savefig("./img/figures/combined_analysis.svg", format="svg", bbox_inches="tight")
+    plt.savefig("./img/plots/combined_analysis.svg", format="svg", bbox_inches="tight")
     plt.show()
 
 

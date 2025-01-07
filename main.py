@@ -42,7 +42,7 @@ if SMALL_CHECK:
 
 # ---------------------------------------------------------*/
 if TRAIN:
-    MODELS = ["DQN"]
+    MODELS = ["A2C", "PPO", "DQN"]
 else:
     MODELS = ["RBA", "A2C", "PPO", "DQN"]
 
@@ -185,25 +185,25 @@ if __name__ == "__main__":
     # Environment Analysis
     run_env(ENV_ANALYSIS=1)
 
-    # A: Random Input
+    # # A: Random Input
     run_env(BENCHMARK=1, TAG_ADD="A", COMPLEX=0, INPUT="r", NOISE=0, ACTION_PENALTY=0)
     run_env(BENCHMARK=1, TAG_ADD="A", COMPLEX=1, INPUT="r", NOISE=0, ACTION_PENALTY=0)
 
-    # B: Seasonal Input
+    # # B: Seasonal Input
     run_env(BENCHMARK=1, TAG_ADD="B", COMPLEX=0, INPUT="s9", NOISE=0, ACTION_PENALTY=0.5)
     run_env(BENCHMARK=1, TAG_ADD="B", COMPLEX=1, INPUT="s9", NOISE=0, ACTION_PENALTY=0.5)
 
-    # C: Random Input with Noise
+    # # C: Random Input with Noise
     run_env(BENCHMARK=1, TAG_ADD="C", COMPLEX=0, INPUT="r", NOISE=0.3, ACTION_PENALTY=0)
     run_env(BENCHMARK=1, TAG_ADD="C", COMPLEX=1, INPUT="r", NOISE=0.3, ACTION_PENALTY=0)
 
-    # D: Seasonal Input with Noise
-    run_env(BENCHMARK=1, TAG_ADD="D", COMPLEX=0, INPUT="s9", NOISE=0.2, ACTION_PENALTY=0.5)
-    run_env(BENCHMARK=1, TAG_ADD="D", COMPLEX=1, INPUT="s9", NOISE=0.2, ACTION_PENALTY=0.5)
+    # # D: Seasonal Input with Noise
+    run_env(BENCHMARK=1, TAG_ADD="D", COMPLEX=0, INPUT="s9", NOISE=0.3, ACTION_PENALTY=0.5)
+    run_env(BENCHMARK=1, TAG_ADD="D", COMPLEX=1, INPUT="s9", NOISE=0.3, ACTION_PENALTY=0.5)
 
-    # Some Experiments
-    # run_env(BENCHMARK=1, TAG_ADD="B", COMPLEX=0, INPUT="r", NOISE=0, ACTION_PENALTY=0, MODELS=["PPO"])
-    # run_env(BENCHMARK=1, TAG_ADD="D", COMPLEX=1, INPUT="s9", NOISE=0.3, ACTION_PENALTY=0.5, MODELS=["RBA", "A2C"])
+    # # Some Experiments
+    # run_env(SMALL_CHECK=1, TAG_ADD="A", COMPLEX=0, INPUT="r", NOISE=0, ACTION_PENALTY=0, MODELS=["DQN"])
+    # run_env(TRAIN=1, TAG_ADD="D", COMPLEX=1, INPUT="s9", NOISE=0.3, ACTION_PENALTY=0.5, MODELS=["DQN"])
     # run_env(LOAD=1, COMPLEX=1, MODELS=["RBA"])
 
 # -------------------------Notes-----------------------------------------------*\
